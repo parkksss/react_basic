@@ -17,11 +17,15 @@ class App extends React.Component {
 
   // 랜더 함수 안에 리액트 엘리먼트를 넣어줍니다!
   render() {
+    // this 키워드를 통해 state에 접근할 수 있어요.
+    console.log(this.state);
+
       return (
       <div className="App">
         <h1>내 버킷리스트</h1>
-        {/* 컴포넌트를 넣어줍니다. */}
-        <BucketList/>
+        {/* state 넘겨주기 */}
+        {/* <컴포넌트 명 [props 명]={넘겨줄 것(리스트, 문자열, 숫자, ...)}/> */}
+        <BucketList list={this.state.list}/>
       </div>
     );
   }

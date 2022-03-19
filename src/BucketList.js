@@ -13,7 +13,7 @@ import React from 'react';
 // 앗 () 안에 props! 부모 컴포넌트에게 받아온 데이터입니다.
 // js 함수가 값을 받아오는 것과 똑같이 받아오네요.
 const BucketList = (props) => {
-
+    console.log(props);
     // 컴포넌트가 뿌려줄 ui 요소(리엑트 엘리먼트라고 불러요.)를 반환해줍니다.
     return (
         <div>
