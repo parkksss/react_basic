@@ -2,22 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let name = "박예슬"
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {name}
+      <p style={{color: 'orange', fontSize: '20px'}}>안녕하세요! 리액트 반입니다 :)</p>
+      <input type="text" />
     </div>
   );
 }
