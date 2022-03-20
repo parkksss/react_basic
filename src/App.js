@@ -3,6 +3,7 @@ import React from 'react';
 // import [컴포넌트 명] from [컴포넌트가 있는 파일경로];
 import BucketList from './BucketList';
 import "./style.css";
+import styled from "styled-components";
 
 class App extends React.Component {
 
@@ -21,16 +22,30 @@ class App extends React.Component {
 
       return (
       <div className="App">
-        <div className="container">
+        <MyStyled>
+          <p>im here!!!</p>
+        </MyStyled>
+        {/* <div className="container">
           <h1>내 버킷리스트</h1>
           <hr className="line"/>
-          {/* 컴포넌트 넣어주고, state 넘겨주기 */}
-          {/* <컴포넌트 명 [props 명]={넘겨줄 것(리스트, 문자열, 숫자, ...)}/> */}
           <BucketList list={this.state.list}/>
-        </div>
+        </div> */}
       </div>
     );
   }
 }
+
+
+const MyStyled = styled.div`
+  width: 50vw;
+  height: 150px;
+  background-color: ${(props) => (props.bg_color ? "red" : "purple")};
+  p {
+    color: blue;
+  }
+  &:hover{
+    background-color: yellow;
+  }
+`;
 
 export default App;
