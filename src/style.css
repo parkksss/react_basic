@@ -3,4 +3,5 @@
   height: 100vh;  /*vh : 화면비율 - 화면을 기준으로해서 얼마 줄거야 -> 화면을 기준으로해서 100% 주겠다 */
   width: 100vw;  
   display: flex;
+  flex-direction: column;
 }
