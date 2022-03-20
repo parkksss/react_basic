@@ -16,27 +16,31 @@ import styled from "styled-components";
 const BucketList = ({ list }) => {
     
     const my_lists = list;
+    const my_wrap = React.useRef(null);
+
+    console.log(my_wrap);
+
+    window.setTimeout(() => { // 1초 뒤에는?!
+        console.log(my_wrap);
+      }, 1000);
+
     // 컴포넌트가 뿌려줄 ui 요소(리엑트 엘리먼트라고 불러요.)를 반환해줍니다.
     return (
-        <ListStyle>
+        <div ref={my_wrap}>
           {my_lists.map((list, index) => {
-            return (
-              <ItemStyle key={index}>
-                {list}
-              </ItemStyle>
-            );
+            return <ItemStyle key={index}>{list}</ItemStyle>;
           })}
-        </ListStyle>
+        </div>
     );
 };
 
-const ListStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-`;
+// const ListStyle = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+//   overflow-x: hidden;
+//   overflow-y: auto;
+// `;
 
 const ItemStyle = styled.div`
   padding: 16px;
