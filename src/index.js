@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// BrowserRouter import
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
+  // 최상위 컴포넌트 App 감싸주기 -> 안에들어간 모든 컴포넌트에 페이징이 적용될 수 있음
+  <BrowserRouter> 
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
