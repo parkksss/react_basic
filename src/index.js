@@ -6,11 +6,18 @@ import reportWebVitals from './reportWebVitals';
 // BrowserRouter import
 import { BrowserRouter } from "react-router-dom";
 
+// 우리의 버킷리스트에 리덕스를 주입해줄 프로바이더를 불러옵니다!
+import { Provider } from "react-redux";
+// 연결할 스토어도 가지고 와요.
+import store from "./redux/configStore";
+
 ReactDOM.render(
   // 최상위 컴포넌트 App 감싸주기 -> 안에들어간 모든 컴포넌트에 페이징이 적용될 수 있음
-  <BrowserRouter> 
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter> 
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
