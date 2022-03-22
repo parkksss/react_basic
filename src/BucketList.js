@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { useHistory } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 const BucketList = (props) => {
   const history = useHistory();
