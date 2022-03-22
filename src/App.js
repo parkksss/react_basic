@@ -19,7 +19,7 @@ function App() {
   const addBucketList = () => {
     dispatch(createBucket(text.current.value));
   };
-  
+
   return (
     <div className="App">
       <Container>
@@ -31,7 +31,7 @@ function App() {
           <Route path="/" exact>
             <BucketList list={list}/>
           </Route>
-          <Route path="/detail">
+          <Route path="/detail/:index">
             <Detail />
           </Route>
           <Route>
