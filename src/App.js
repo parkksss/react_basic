@@ -11,6 +11,7 @@ import Detail from "./Detail";
 import NotFound from "./NotFound";
 import Progress from "./Progress";
 import {db} from "./firebase";
+import { collection, getDoc, getDocs } from "firebase/firestore";
 
 function App() {
   const [list, setList] = React.useState([
@@ -21,8 +22,12 @@ function App() {
   const text = React.useRef(null);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    console.log(db);
+  React.useEffect(async() => {
+    const query = await getDocs(collection(db, 'bucket'));
+		console.log(query);
+    query.forEach((doc) => {
+      console.log(doc.id, doc.data());
+    });
   }, []);
 
   const addBucketList = () => {
