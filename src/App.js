@@ -25,7 +25,7 @@ function App() {
     // 원본 배열 list에 새로운 요소를 추가해주었습니다.
     // setList([...list, text.current.value]);
 
-    dispatch(createBucket(text.current.value));
+    dispatch(createBucket({ text: text.current.value, completed: false}));
   };
   return (
     <div className="App">
