@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
-import { deleteBucket, updateBucket } from "./redux/modules/bucket";
+import { deleteBucketFB, updateBucketFB } from "./redux/modules/bucket";
 
 const Detail = (props) => {
     const dispatch = useDispatch();
@@ -14,11 +14,11 @@ const Detail = (props) => {
       <div>
         <h1>{bucket_list[bucket_index].text}</h1>
         <button onClick={() => {
-          dispatch(updateBucket(bucket_index));
+          dispatch(updateBucketFB(bucket_list[bucket_index].id));
+          // dispatch(updateBucket(bucket_index));
         }}>완료하기</button>
         <button onClick={() => {
-            console.log("삭제하기 버튼을 눌렀어!");
-            dispatch(deleteBucket(bucket_index));
+            dispatch(deleteBucketFB(bucket_list[bucket_index].id));
             history.goBack();
         }}>삭제하기</button>
       </div>
