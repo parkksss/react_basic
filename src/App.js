@@ -52,6 +52,9 @@ function App() {
         <input type="text" ref={text} />
         <button onClick={addBucketList}>추가하기</button>
       </Input>
+      <button onClick={() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }}>위로가기</button>
     </div>
   );
 }
@@ -78,7 +81,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
   color: slateblue;
-  text-align: center;
+  text-align: center; c
 `;
 
 const Line = styled.hr`
