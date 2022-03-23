@@ -10,6 +10,7 @@ import BucketList from "./BucketList";
 import Detail from "./Detail";
 import NotFound from "./NotFound";
 import Progress from "./Progress";
+import {db} from "./firebase";
 
 function App() {
   const [list, setList] = React.useState([
@@ -19,6 +20,10 @@ function App() {
   ]);
   const text = React.useRef(null);
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    console.log(db);
+  }, []);
 
   const addBucketList = () => {
     // 스프레드 문법! 기억하고 계신가요? :)
