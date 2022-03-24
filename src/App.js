@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Route, Switch } from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
 import {createBucket, loadBucketFB, addBucketFB } from "./redux/modules/bucket";
 
 // BucketList 컴포넌트를 import 해옵니다.
@@ -10,8 +10,11 @@ import BucketList from "./BucketList";
 import Detail from "./Detail";
 import NotFound from "./NotFound";
 import Progress from "./Progress";
+import Spinner from "./Spinner";
+
 import {db} from "./firebase";
 import { collection, getDoc, getDocs, addDoc } from "firebase/firestore";
+
 
 function App() {
   const [list, setList] = React.useState([
@@ -21,6 +24,7 @@ function App() {
   ]);
   const text = React.useRef(null);
   const dispatch = useDispatch();
+  const is_loaded = useSelector(state => state.bucket.is_loaded);
 
   React.useEffect(async() => {
     dispatch(loadBucketFB());
@@ -58,9 +62,7 @@ function App() {
         <input type="text" ref={text} />
         <button onClick={addBucketList}>추가하기</button>
       </Input>
-      <button onClick={() =>{
-        window.scrollTo({top:0, left:0, behavior:"smooth"});
-      }}>위로 가기</button>
+      {!is_loaded && <Spinner />}
     </div>
   );
 }

@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 const BucketList = (props) => {
   const history = useHistory();
   const my_lists = useSelector((state) => state.bucket.list);
+  
 
   return (
     <ListStyle>

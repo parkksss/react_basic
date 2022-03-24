@@ -18,6 +18,7 @@ const UPDATE = "bucket/UPDATE";
 const DELETE = "bucket/DELETE";
 
 const initialState = {
+  is_loaded: false,
   list: [],
 };
 
@@ -116,13 +117,13 @@ export const deleteBucketFB = (bucket_id) => {
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case "bucket/LOAD": {
-      return {list: action.bucket_list}
-    }
+      return {list: action.bucket_list, is_loaded: true}
+    } 
 
     case "bucket/CREATE": {
         console.log("이제 값을 바꿀거야!");
         const new_bucket_list = [...state.list, action.bucket];
-        return {list : new_bucket_list};
+        return { ...state, list : new_bucket_list};
     }
 
     case "bucket/UPDATE": {
@@ -135,7 +136,7 @@ export default function reducer(state = initialState, action = {}) {
         }
       });
       console.log({ list: new_bucket_list });
-      return {list: new_bucket_list};
+      return { ...state, list: new_bucket_list};
 
     }
 
@@ -144,7 +145,7 @@ export default function reducer(state = initialState, action = {}) {
         return parseInt(action.bucket_index) !== idx;
       });
   
-     return {list: new_bucket_list};
+     return {...state, list: new_bucket_list};
     }
     default:
       return state;

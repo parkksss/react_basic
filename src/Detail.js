@@ -11,6 +11,7 @@ const Detail = (props) => {
     const params = useParams();
     const bucket_index = params.index;
     const bucket_list = useSelector((state) => state.bucket.list);
+    // console.log(state)
     
     return (
       <div>
