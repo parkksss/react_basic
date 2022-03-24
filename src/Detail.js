@@ -3,6 +3,8 @@ import { useParams, useHistory } from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import { deleteBucketFB, updateBucketFB } from "./redux/modules/bucket";
 
+import Button from "@material-ui/core/Button";
+
 const Detail = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -13,14 +15,20 @@ const Detail = (props) => {
     return (
       <div>
         <h1>{bucket_list[bucket_index].text}</h1>
-        <button onClick={() => {
+        <Button 
+          variant="outlined"
+          color="primary"
+          onClick={() => {
           dispatch(updateBucketFB(bucket_list[bucket_index].id));
           // dispatch(updateBucket(bucket_index));
-        }}>완료하기</button>
-        <button onClick={() => {
+        }}>완료하기</Button>
+        <Button 
+          variant="outlined"
+          color="secondary"
+          onClick={() => {
             dispatch(deleteBucketFB(bucket_list[bucket_index].id));
             history.goBack();
-        }}>삭제하기</button>
+        }}>삭제하기</Button>
       </div>
     );
 }
